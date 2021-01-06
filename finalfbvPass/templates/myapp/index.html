@@ -1,0 +1,27 @@
+<html lang="en" dir="ltr">
+    {% extends 'myApp/parent.html' %}
+<body>
+    {% block for_child %}
+    <h1>Student Details</h1>
+    <table border="2">
+        <tr style="color: blue;">
+            <th><h2><b>Number</b></h2></th>
+            <th><h2><b>Name</b></h2></th>
+            <th><h2><b>Marks</b></h2></th>
+            <th><h2><b>Adress</b></h2></th>
+        </tr>
+        {% for x in std %}
+        <tr>
+            <td><b>{{x.sno}}</b></td>
+            <td><b>{{x.sname}}</b></td>
+            <td><b>{{x.smarks}}</b></td>
+            <td><b>{{x.saddr}}</b></td>
+            <td><a href="/update/{{x.id}}" class="btn btn-lg btn-warning">update</a></td>
+            <td><a href="/delete/{{x.id}}" class="btn btn-lg btn-danger">delete</a></td>
+        </tr>
+        {% endfor %}
+    </table><br><br>
+    <a href="/insert" class="btn btn-lg btn-primary">insert a new record</a>
+    {% endblock %}
+</body>
+</html>
